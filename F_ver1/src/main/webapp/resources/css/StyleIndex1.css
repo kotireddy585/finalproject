@@ -1,0 +1,38 @@
+ body{
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-image: url("<c:url value="${pageContext.request.contextPath}/resources/images/indeximage.jpg"></c:url>");
+  color:white;
+  font-family:verdana;
+  }
+  
+#logo{
+    position:absolute;
+    float:left;
+   width:150px;
+   height:150px;
+   background-image: url("<c:url value="/resources/images/logo150.jpg"></c:url>");
+  
+}  
+#mainheading{
+background-color:#00cccc;
+margin:10px;
+padding-top:20px;
+padding-bottom:20px;
+padding-left:160px;
+border-radius:5px;
+}
+
+#signinb,#signupb,#bookappb,#appstatusb{
+background-color:#00cccc;
+border:none;
+margin:3px;
+padding: 15px;
+float:right;
+border-radius:3px;
+}
+
+a{
+ text-decoration:none;
+ color:white;
+}
