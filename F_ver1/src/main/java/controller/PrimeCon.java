@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import model.Patient;
 import service.Serviceclass;
@@ -50,7 +51,7 @@ public class PrimeCon
     	return "redirect:/home";
     }
     
-    @RequestMapping("signinb")
+    @RequestMapping(value="{signinb,bookappb,appstatusb}")
     public String signinp(Model m2)
     {
     	m2.addAttribute("signinModel", new Patient());
@@ -76,4 +77,13 @@ public class PrimeCon
         }
     	
     }
+    
+    @RequestMapping(value="signbookappb")
+    public ModelAndView bookapp(@ModelAttribute("pat") Patient p)
+    {
+    	System.out.println(p.getMobile()+" returning to appbook with bookatt");
+    	return new ModelAndView("appbook","bookatt",p);
+    }
+    
+    
 }

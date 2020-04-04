@@ -26,6 +26,7 @@
              <td><form:input path="password" type="password"/></td>      
          </tr> 
          <tr>
+           <td><input type="reset" value="RESET"></td>
            <td><input type="submit" value="SIGN IN"></td>
          </tr>
        </table>
