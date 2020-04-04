@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.Pappointment;
 import model.Patient;
 import service.Serviceclass;
 
@@ -30,7 +31,7 @@ public class PrimeCon
 	}
     
     //trying to signup a patient
-    @RequestMapping("signupb")
+    @RequestMapping(value= {"signupb","newuser"})
     public String signupm(Model model)
     {
     	model.addAttribute("patient", new Patient());
@@ -81,9 +82,29 @@ public class PrimeCon
     @RequestMapping(value="signbookappb")
     public ModelAndView bookapp(@ModelAttribute("pat") Patient p)
     {
-    	System.out.println(p.getMobile()+" returning to appbook with bookatt");
+//    	System.out.println(p.getMobile()+" returning to appbook with bookatt");
     	return new ModelAndView("appbook","bookatt",p);
     }
     
     
+    @RequestMapping("appbook1")
+    public String getThePatient(@ModelAttribute("bookatt") Patient pa,Model show)
+    {
+    	Patient pa1 = ser1.findPatient(pa);
+    	Pappointment papp1 = new Pappointment();
+    	papp1.setMobile(pa1.getMobile());
+    	papp1.setAge(pa1.getAge());
+    	papp1.setEmail(pa1.getEmail());
+    	papp1.setName(pa1.getName());
+    	System.out.println(pa1);
+    	show.addAttribute("cata", papp1);
+    	return "Showappcata";
+    }
+    
+    @RequestMapping("createapp")
+    public ModelAndView createapp(@ModelAttribute("cata") Pappointment papp)
+    {
+    	ser1.createappSer(papp);
+    	return new ModelAndView("appcrdone","appd",papp);
+    }
 }

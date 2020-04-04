@@ -74,5 +74,14 @@ public class Patient
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Patient [mobile=" + mobile + ", name=" + name + ", password=" + password + ", email=" + email + ", age="
+				+ age + "]";
 	}	
+	
+	
+	
 }

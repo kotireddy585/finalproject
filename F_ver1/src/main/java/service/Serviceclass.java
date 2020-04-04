@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import dao.Patientdao;
+import model.Pappointment;
 import model.Patient;
 
 @Service
@@ -34,6 +35,17 @@ public class Serviceclass
 		}
 		   
 	}
+
+	public Patient findPatient(Patient pa) {
+		return dao1.findPatientF(pa);
+	}
+
+	@Transactional
+	public void createappSer(Pappointment papp) {
+
+		 dao1.createappDao(papp);
+	}
+
 	
 	
 

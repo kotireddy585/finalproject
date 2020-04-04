@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"  %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
@@ -68,10 +69,10 @@ a{
 </div>
     <h1 id="mainheading">KALATHURU HOSPITALS</h1>
     <div id="buttonline">
-     <a href="signindn" method="POST"><button id="bookappb">HOME</button></a>
+     <a><button id="bookappb">HOME</button></a>
      <a href="signbookappb"><button id="bookappb">BOOK APPOINTMENT</button></a>
      <a href="signappstatusb"><button id="appstatusb">APPOINTMENT STATUS</button></a>
-     <a target="_self"><button id="signinb">WELCOME <c:out value="${pat.name }"></c:out></button></a>
+     <a><button id="signinb">WELCOME <c:out value="${pat.name }"></c:out></button></a>
      <a href="home"><button id="signupb">LOG OUT</button>
     </div>
 </body>

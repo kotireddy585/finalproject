@@ -30,6 +30,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>model.Patient</value>
+				<value>model.Pappointment</value>
 			</list>
 		</property>
 		<!-- hibernate.cfg.xml -->

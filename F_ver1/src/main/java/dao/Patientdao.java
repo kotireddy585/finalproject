@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import model.Pappointment;
 import model.Patient;
 
 @Repository
@@ -43,6 +44,31 @@ public class Patientdao {
 		}
 		session.close();
 		return patientfound;
+	}
+
+	public Patient findPatientF(Patient pa) {
+       
+		String mobile = pa.getMobile();
+		System.out.println(mobile);
+		Session session = sessionFactory.openSession();
+		String sql = "From Patient as p where p.mobile=?";
+		Query query = session.createQuery(sql);
+		query.setParameter(0, mobile);
+		List<Patient> list =(List<Patient>)query.list();
+		System.out.println(list);
+		session.close();
+		return list.get(0);
+	}
+
+	public void createappDao(Pappointment papp) {
+		System.out.println(papp.getMobile()+" "+papp.getName()+" "+papp.getAge()+" "+papp.getDoctor()+" "+papp.getSlot());
+		Session session = sessionFactory.openSession();
+		session.save(papp);
+		System.out.println("patient appointment record inserted");
+		session.flush();
+		session.close();
+		
+		
 	}
 
 }

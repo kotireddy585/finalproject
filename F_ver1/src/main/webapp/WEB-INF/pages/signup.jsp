@@ -44,8 +44,10 @@
 		}
 		.error{
 		  color:white;
+		  background-color: transparent;
 		}
 		#err{
+		 background-color: transparent;
 		 text-align: left;
 		}
 	</style>
